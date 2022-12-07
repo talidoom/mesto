@@ -5,4 +5,5 @@
   margin-right: 40px;
   object-fit: cover;
   object-position: center;
+  order:1;
 }

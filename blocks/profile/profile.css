@@ -1,9 +1,9 @@
 .profile {
-  max-width: 880px;
+  width: 880px;
   min-height: 120px;
   padding: 0;
-  display: grid;
-  grid-template-columns: 1fr 3fr 1fr;
-  align-content: flex-start;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   align-items: center;
 }
