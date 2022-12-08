@@ -1,5 +1,8 @@
 .element__pic {
   padding-bottom: 25px;
-  width: 282px;
-  height: 282px;
+  width: 100%;
+  min-height: 282px;
+  object-fit: contain;
+  object-position: center center;
+  display: block;
 }
