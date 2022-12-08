@@ -6,4 +6,10 @@
   color: #fff;
   border: 1px solid #fff;
   order: 3;
+  cursor: pointer;
+  transition: opacity 0.4s;
+}
+
+.profile__edit-button:hover {
+  opacity: 0.6;
 }

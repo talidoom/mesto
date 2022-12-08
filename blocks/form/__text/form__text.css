@@ -1,0 +1,15 @@
+.form__text {
+  margin: 0;
+  width: 358px;
+  padding: 13px 0;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 17px;
+  text-align: left;
+  outline: none;
+}
+.form__text:first-of-type {
+  margin-bottom: 17px;
+}
