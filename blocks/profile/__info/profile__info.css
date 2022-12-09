@@ -12,3 +12,9 @@
     margin: auto;
   }
 }
+
+@media screen and (max-width: 480px) {
+  .profile__info {
+    min-width: 282px;
+  }
+}

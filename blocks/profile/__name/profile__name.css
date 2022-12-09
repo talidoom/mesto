@@ -9,3 +9,18 @@
   white-space: nowrap;
   overflow: hidden;
 }
+
+@media screen and (max-width: 920px) {
+  .profile__name {
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .profile__name {
+    font-size: 27px;
+    font-weight: 500;
+    line-height: 33px;
+    text-align: center;
+  }
+}
