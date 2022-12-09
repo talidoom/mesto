@@ -9,13 +9,13 @@
 
 @media screen and (max-width: 920px) {
   .header {
-    min-width: 320px;
     padding-left: 27px;
   }
 }
 
 @media screen and (max-width: 480px) {
   .header {
+    min-width: 320px;
     min-height: 56px;
     padding-top: 28px;
   }
