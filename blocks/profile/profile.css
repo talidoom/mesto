@@ -1,5 +1,5 @@
 .profile {
-  width: 880px;
+  width: 100%;
   min-height: 120px;
   padding: 0;
   display: flex;
@@ -12,7 +12,6 @@
   .profile {
     flex-direction: column;
     justify-content: center;
-    width: 100%;
   }
 }
 
