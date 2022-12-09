@@ -4,7 +4,6 @@
     right: -40px;
     background-color: rgba(0, 0, 0, 0);
     border: none;
-    transition: opacity 0.4s;
     cursor: pointer;
 }
 .popup__close-but:hover {

@@ -4,7 +4,6 @@
   fill: #fff;
   stroke: #000;
   cursor: pointer;
-  transition: opacity 0.4s;
 }
 
 .element__like:hover {
