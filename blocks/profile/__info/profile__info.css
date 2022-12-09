@@ -6,3 +6,9 @@
   margin-right: auto;
   order: 2;
 }
+
+@media screen and (max-width: 920px) {
+  .profile__info {
+    margin: auto;
+  }
+}
