@@ -3,3 +3,11 @@
     height: 32px;
     color: #fff;
 }
+
+
+@media screen and (max-width: 480px) {
+    .popup__close-pc {
+        width: 20px;
+        height: 20px;
+    }
+  }

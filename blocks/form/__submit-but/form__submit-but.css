@@ -1,15 +1,17 @@
 .form__submit-but {
   width: 100%;
-  height: 58px;
+  height: 50px;
   text-align: center;
   background-color: #000;
   color: #fff;
   border-radius: 2px;
+  border: none;
   font-size: 18px;
   font-weight: 400;
   line-height: 22px;
   cursor: pointer;
   margin-top: 48px;
+  padding: 0;
 }
 
 .form__submit-but:hover {
@@ -18,6 +20,7 @@
 
 @media screen and (max-width: 480px) {
   .form__submit-but {
+    margin-top: 45px;
     height: 46px;
     font-size: 14px;
     line-height: 17px;
