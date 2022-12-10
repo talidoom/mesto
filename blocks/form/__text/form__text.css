@@ -13,3 +13,11 @@
 .form__text:first-of-type {
   margin-bottom: 17px;
 }
+
+@media screen and (max-width: 480px) {
+  .form__text {
+    font-size: 14px;
+    line-height: 17px;
+    width: 238px;
+  }
+}

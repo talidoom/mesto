@@ -15,3 +15,11 @@
 .form__submit-but:hover {
   opacity: 0.8;
 }
+
+@media screen and (max-width: 480px) {
+  .form__submit-but {
+    height: 46px;
+    font-size: 14px;
+    line-height: 17px;
+  }
+}
