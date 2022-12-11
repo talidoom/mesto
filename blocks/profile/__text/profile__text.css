@@ -2,15 +2,8 @@
   max-width: 336px;
 }
 
-@media screen and (max-width: 920px) {
-  .profile__text {
-    margin-left: 42px;
-  }
-}
-
 @media screen and (max-width: 480px) {
   .profile__text {
     max-width: 254px;
-    margin-left: 28px;
   }
 }

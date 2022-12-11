@@ -9,24 +9,9 @@
     <script src="./script/index.js" defer></script>
 </head>
 <body class="page">
-  <!-- попап -->
-    <section class="popup">
-      <div class="popup__conteiner">
-        <button class="popup__close-but">
-          <img src="./images/close-button.svg" class="popup__close-pc" alt="Закрыть">
-        </button>
-        <h2 class="popup__title">Редактировать профиль</h2>
-        <form class="form">
-            <input class="form__text form__text_name" name="name" type="text" placeholder="Лара Крофт" required>
-            <input class="form__text form__text_job" name="job" type="text" placeholder="Исследователь, археолог" required>
-          <button class="form__submit-but" type="submit">Сохранить</button>
-        </form>
-      </div>
-    </section>
-
     <!-- шапка -->
     <header class="header">
-      <img src="./images/logo-header.png" class="header__logo" alt="Логотип">
+      <img src="./images/logo-header.svg" class="header__logo" alt="Логотип">
     </header>
 
     <main class="content">
@@ -38,65 +23,63 @@
             <h1 class="profile__name">Лара Крофт</h1>
             <p class="profile__job">Исследователь, археолог</p>
           </div>
-          <button class="profile__edit-button">
-            <img src="./images/profile-edit.svg" class="profile__edit-pc" alt="Кнопка редактирования">
-          </button>
+          <button class="profile__edit-button" type="button" aria-label="Редактировать"></button>
         </div>
-        <button class="profile__add-button">
-          <img src="./images/add-button.svg" class="profile__add-pc" alt="Добавить">
-        </button>
+        <button class="profile__add-button" type="submit" aria-label="Добавить"></button>
       </section>
 
       <!-- галерея -->
-      <ul class="elements" aria-label="Фотографии путешествий">
-        <li class="element">
-          <img class="element__pic" src="./images/img-element/daiving-kankun.jpg" alt="Под водой">
-          <div class="element__item">
-            <p class="element__text">Дайвинг в Кахуне</p>
-            <img class="element__like" src="./images/img-element/like/like-white.svg" alt="">
-          </div>
-        </li>
+      <section class="elements">
+        <ul class="elements__list" aria-label="Фотографии путешествий">
+          <li class="element">
+            <img class="element__pic" src="./images/img-element/daiving-kankun.jpg" alt="Под водой">
+            <div class="element__item">
+              <h2 class="element__text">Дайвинг в Кахуне</h2>
+              <button type="button" class="element__like-button" aria-label="Лайк"></button>
+            </div>
+          </li>
 
-        <li class="element">
-          <img class="element__pic" src="./images/img-element/dombay.jpg" alt="Горы">
-          <div class="element__item">
-            <p class="element__text">Домбай</p>
-            <img class="element__like" src="./images/img-element/like/like-white.svg" alt="">
-          </div>
-        </li>
+          <li class="element">
+            <img class="element__pic" src="./images/img-element/dombay.jpg" alt="Горы">
+            <div class="element__item">
+              <h2 class="element__text">Домбай</h2>
+              <button type="button" class="element__like-button" aria-label="Лайк"></button>
+            </div>
+          </li>
 
-        <li class="element">
-          <img class="element__pic" src="./images/img-element/halong.jpg" alt="Гора-остров">
-          <div class="element__item">
-            <p class="element__text">Халонг</p>
-            <img class="element__like" src="./images/img-element/like/like-white.svg" alt="">
-          </div>
-        </li>
+          <li class="element">
+            <img class="element__pic" src="./images/img-element/halong.jpg" alt="Гора-остров">
+            <div class="element__item">
+              <h2 class="element__text">Халонг</h2>
+              <button type="button" class="element__like-button" aria-label="Лайк"></button>
+            </div>
+          </li>
 
-        <li class="element">
-          <img class="element__pic" src="./images/img-element/kuaka-lumpur.jpg" alt="Статуя в джунглях">
-          <div class="element__item">
-            <p class="element__text">Куала-Лумпур</p>
-            <img class="element__like" src="./images/img-element/like/like-white.svg" alt="">
-          </div>
-        </li>
+          <li class="element">
+            <img class="element__pic" src="./images/img-element/kuaka-lumpur.jpg" alt="Статуя в джунглях">
+            <div class="element__item">
+              <h2 class="element__text">Куала-Лумпур</h2>
+              <button type="button" class="element__like-button" aria-label="Лайк"></button>
+            </div>
+          </li>
 
-        <li class="element">
-          <img class="element__pic" src="./images/img-element/perhentian-island.jpg" alt="Остров">
-          <div class="element__item">
-            <p class="element__text">Перхентианские острова</p>
-            <img class="element__like" src="./images/img-element/like/like-white.svg" alt="">
-          </div>
-        </li>
+          <li class="element">
+            <img class="element__pic" src="./images/img-element/perhentian-island.jpg" alt="Остров">
+            <div class="element__item">
+              <h2 class="element__text">Перхентианские острова</h2>
+              <button type="button" class="element__like-button" aria-label="Лайк"></button>
+            </div>
+          </li>
 
-        <li class="element">
-          <img class="element__pic" src="./images/img-element/tailand.jpg" alt="Джунгли">
-          <div class="element__item">
-            <p class="element__text">Джунгли Тайланда</p>
-            <img class="element__like" src="./images/img-element/like/like-white.svg" alt="">
-          </div>
-        </li>
-      </ul>
+          <li class="element">
+            <img class="element__pic" src="./images/img-element/tailand.jpg" alt="Джунгли">
+            <div class="element__item">
+              <h2 class="element__text">Джунгли Тайланда</h2>
+              <button type="button" class="element__like-button" aria-label="Лайк"></button>
+            </div>
+          </li>
+        </ul>
+      </section>
 
     </main>
 
@@ -104,5 +87,18 @@
     <footer class="footer" aria-label="Копирайт">
       <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
     </footer>
+
+    <!-- попап -->
+    <div class="popup">
+      <div class="popup__conteiner">
+        <button class="popup__close-but" type="button" aria-label="Закрыть"></button>
+        <h2 class="popup__title">Редактировать профиль</h2>
+        <form class="form">
+            <input class="form__text form__text_type_name" name="name" type="text" placeholder="Лара Крофт" required>
+            <input class="form__text form__text_type_job" name="job" type="text" placeholder="Исследователь, археолог" required>
+          <button class="form__submit-but" type="submit">Сохранить</button>
+        </form>
+      </div>
+    </div>
 </body>
 </html>

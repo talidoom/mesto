@@ -29,10 +29,11 @@
 @import url(../blocks/profile/__edit-pc/profile__edit-pc.css);
 
 @import url(../blocks/elements/elements.css);
+@import url(../blocks/elements/__list/elements__list.css);
 @import url(../blocks/element/element.css);
 @import url(../blocks/element/__pic/element__pic.css);
 @import url(../blocks/element/__item/element__item.css);
-@import url(../blocks/element/__like/element__like.css);
+@import url(../blocks/element/__like-button/element__like-button.css);
 @import url(../blocks/element/__text/element__text.css);
 
 @import url(../blocks/footer/footer.css);

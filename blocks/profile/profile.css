@@ -1,6 +1,5 @@
 .profile {
   width: 100%;
-  min-height: 120px;
   padding: 0;
   display: flex;
   flex-direction: row;
@@ -18,6 +17,5 @@
 @media screen and (max-width: 480px) {
   .profile {
     width: 282px;
-    justify-content: center;
   }
 }

@@ -1,6 +1,5 @@
 .element {
   width: 282px;
-  height: 361px;
   background-color: #fff;
   display: flex;
   flex-direction: column;
@@ -9,5 +8,5 @@
   overflow: hidden;
   list-style-type: none;
   margin: 0;
-  padding: 0;
+  padding: 0 0 31px;
 }
