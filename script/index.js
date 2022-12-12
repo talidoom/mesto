@@ -20,10 +20,6 @@ profileEditButton.addEventListener('click', popupShow);
 
 // функция для закрытия попапа
 function popupClose () {
-    // автозаполнение формы из профиля
-    nameInput.value = profileName.textContent;
-    jobInput.value = profileJob.textContent;
-    // открытие окна
     popup.classList.remove('popup_opened');
 }
 popupCloseButton.addEventListener('click', popupClose);
@@ -35,7 +31,7 @@ function handleFormSubmit (evt) {
     profileName.textContent = nameInput.value;
     profileJob.textContent = jobInput.value;
   // закрытие попапа
-    popup.classList.remove('popup_opened');
+    popupClose ()
 }
 // срабатывание обработчика по кнопке
 formElement.addEventListener('submit', handleFormSubmit);
