@@ -6,6 +6,8 @@
   background: url('../../../images/img-element/like/like-white.svg') no-repeat;
   background-position: center;
   background-size: contain;
+  padding: 0;
+  margin: 0;
 }
 
 .element__like-button:hover {
