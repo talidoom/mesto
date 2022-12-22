@@ -71,14 +71,10 @@ const initialCards = [
 const popupPlace = document.querySelector('.popup_place');
 const placeCloseButton = popupPlace.querySelector('.popup__close-but');
 const placeAddButton = popupPlace.querySelector('.profile__add-button');
+const formPlace = popupPlace.querySelector('.form');
+const elementsList = document.querySelector('.elements__list');
 const inputPlaceName = popupPlace.querySelector('.form__text_type_placename');
 const inputPlaceLink = popupPlace.querySelector('.form__text_type_link');
-
-const elementsList = document.querySelector('.elements__list');
-
-const elementCard = content.querySelector('.element');
-// const elementImg = content.querySelector('.element__pic');
-// const elementText = content.querySelector('.element__text');
 
 // открытие поп-апа места
 function popupShowPlace(evt) {
@@ -92,23 +88,30 @@ function popupClosePlace () {
 };
 placeCloseButton.addEventListener('click', popupClosePlace);
 
-// действие по кнопке Создать
-// function addNewCard() {
-//   elementText.textContent = inputPlaceName.value;
-//   elementImg.alt = inputPlaceName.value;
-//   elementImg.src = inputPlaceLink.value;
-
-//   popupClosePlace();
-// };
-// placeAddButton.addEventListener('submit', addContentElem);
-
 // карточки из массива
 const cardTemplate = document.querySelector('.card-template').content;
-initialCards.forEach(function (item) {
-  const initialElement = cardTemplate.cloneNode(true);
-  initialElement.querySelector('.element__text').textContent = item.name;
-  initialElement.querySelector('.element__pic').alt = item.name;
-  initialElement.querySelector('.element__pic').src = item.link;
 
-  elementsList.append(initialElement);
+initialCards.forEach(function (item) {
+  const newCard = createCard(item);
+  elementsList.append(newCard);
+});
+
+// действие по кнопке Создать
+function createCard(item) {
+  const newCard = cardTemplate.cloneNode(true);
+  newCard.querySelector('.element__text').textContent = item.name;
+  newCard.querySelector('.element__pic').alt = item.name;
+  newCard.querySelector('.element__pic').src = item.link;
+  return newCard;
+};
+
+// кнопка создать попап
+formPlace.addEventListener('submit', function(evt) {
+  evt.preventDefault();
+  const newCard = createCard({name: inputPlaceName.value, link: inputPlaceLink.value});
+  elementsList.prepend(newCard);
+  popupClosePlace();
+
+  inputPlaceName.value = '';
+  inputPlaceLink.value = '';
 });
