@@ -31,56 +31,9 @@
       <!-- галерея -->
       <section class="elements">
         <ul class="elements__list" aria-label="Фотографии путешествий">
-          <li class="element">
-            <img class="element__pic" src="./images/img-element/daiving-kankun.jpg" alt="Под водой">
-            <div class="element__item">
-              <h2 class="element__text">Дайвинг в Кахуне</h2>
-              <button type="button" class="element__like-button" aria-label="Лайк"></button>
-            </div>
-          </li>
 
-          <li class="element">
-            <img class="element__pic" src="./images/img-element/dombay.jpg" alt="Горы">
-            <div class="element__item">
-              <h2 class="element__text">Домбай</h2>
-              <button type="button" class="element__like-button" aria-label="Лайк"></button>
-            </div>
-          </li>
-
-          <li class="element">
-            <img class="element__pic" src="./images/img-element/halong.jpg" alt="Гора-остров">
-            <div class="element__item">
-              <h2 class="element__text">Халонг</h2>
-              <button type="button" class="element__like-button" aria-label="Лайк"></button>
-            </div>
-          </li>
-
-          <li class="element">
-            <img class="element__pic" src="./images/img-element/kuaka-lumpur.jpg" alt="Статуя в джунглях">
-            <div class="element__item">
-              <h2 class="element__text">Куала-Лумпур</h2>
-              <button type="button" class="element__like-button" aria-label="Лайк"></button>
-            </div>
-          </li>
-
-          <li class="element">
-            <img class="element__pic" src="./images/img-element/perhentian-island.jpg" alt="Остров">
-            <div class="element__item">
-              <h2 class="element__text">Перхентианские острова</h2>
-              <button type="button" class="element__like-button" aria-label="Лайк"></button>
-            </div>
-          </li>
-
-          <li class="element">
-            <img class="element__pic" src="./images/img-element/tailand.jpg" alt="Джунгли">
-            <div class="element__item">
-              <h2 class="element__text">Джунгли Тайланда</h2>
-              <button type="button" class="element__like-button" aria-label="Лайк"></button>
-            </div>
-          </li>
         </ul>
       </section>
-
     </main>
 
     <!-- подвал -->
@@ -88,17 +41,41 @@
       <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
     </footer>
 
-    <!-- попап -->
-    <div class="popup">
+    <!-- попап профиль-->
+    <div class="popup popup_profile">
       <div class="popup__conteiner">
-        <button class="popup__close-but" type="button" aria-label="Закрыть"></button>
+        <button class="popup__close-but popup__close-but" type="button" aria-label="Закрыть"></button>
         <h2 class="popup__title">Редактировать профиль</h2>
         <form class="form" name="editprofile">
-            <input class="form__text form__text_type_name" name="name" type="text" placeholder="Лара Крофт" required>
-            <input class="form__text form__text_type_job" name="job" type="text" placeholder="Исследователь, археолог" required>
-          <button class="form__submit-but" type="submit">Сохранить</button>
+            <input class="form__text form__text_type_name" name="name" type="text" placeholder="Имя" required>
+            <input class="form__text form__text_type_job" name="job" type="text" placeholder="Ваша профессия" required>
+          <button class="form__button form__button_type_save" type="submit">Сохранить</button>
         </form>
       </div>
     </div>
+
+    <!-- попап добавление карточки-->
+    <div class="popup popup_place">
+      <div class="popup__conteiner">
+        <button class="popup__close-but popup__close-but" type="button" aria-label="Закрыть"></button>
+        <h2 class="popup__title">Новое место</h2>
+        <form class="form" name="editplace">
+            <input class="form__text form__text_type_placename" name="placename" type="text" placeholder="Название" required>
+            <input class="form__text form__text_type_link" name="link" type="text" placeholder="Ссылка на картинку" required>
+          <button class="form__button form__button_type_create" type="submit">Создать</button>
+        </form>
+      </div>
+    </div>
+
+    <template class="card-template">
+      <li class="element">
+        <button class="element__trash" type="button" aria-label="Удалить"></button>
+        <img class="element__pic" src="#" alt="#">
+        <div class="element__item">
+          <h2 class="element__text"></h2>
+          <button type="button" class="element__like-button" aria-label="Лайк"></button>
+        </div>
+      </li>
+    </template>
 </body>
 </html>

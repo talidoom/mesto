@@ -1,4 +1,4 @@
-.form__submit-but {
+.form__button {
   width: 100%;
   height: 50px;
   text-align: center;
@@ -12,14 +12,15 @@
   cursor: pointer;
   margin-top: 48px;
   padding: 0;
+  transition: opacity 0.3s;
 }
 
-.form__submit-but:hover {
+.form__button:hover {
   opacity: 0.8;
 }
 
 @media screen and (max-width: 480px) {
-  .form__submit-but {
+  .form__button {
     margin-top: 45px;
     height: 46px;
     font-size: 14px;
