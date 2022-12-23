@@ -1,3 +1,31 @@
+// массив карточки
+const initialCards = [
+  {
+    name: 'Архыз',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
+  },
+  {
+    name: 'Челябинская область',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
+  },
+  {
+    name: 'Иваново',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
+  },
+  {
+    name: 'Камчатка',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
+  },
+  {
+    name: 'Холмогорский район',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
+  },
+  {
+    name: 'Байкал',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
+  }
+];
+
 const content = document.querySelector('.content');
 const popupProfile = document.querySelector('.popup_profile');
 
@@ -38,35 +66,6 @@ function handleFormSubmit (evt) {
 formElement.addEventListener('submit', handleFormSubmit);
 
 
-// _____Галерея карточки______
-// массив карточки
-const initialCards = [
-  {
-    name: 'Архыз',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-  },
-  {
-    name: 'Челябинская область',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-  },
-  {
-    name: 'Иваново',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-  },
-  {
-    name: 'Камчатка',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-  },
-  {
-    name: 'Холмогорский район',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-  },
-  {
-    name: 'Байкал',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-  }
-];
-
 // ___________Попап места_____________
 const popupPlace = document.querySelector('.popup_place');
 const placeCloseButton = popupPlace.querySelector('.popup__close-but');
@@ -75,6 +74,7 @@ const formPlace = popupPlace.querySelector('.form');
 const elementsList = document.querySelector('.elements__list');
 const inputPlaceName = popupPlace.querySelector('.form__text_type_placename');
 const inputPlaceLink = popupPlace.querySelector('.form__text_type_link');
+const cardTemplate = document.querySelector('.card-template').content;
 
 // открытие поп-апа места
 function popupShowPlace(evt) {
@@ -88,13 +88,24 @@ function popupClosePlace () {
 };
 placeCloseButton.addEventListener('click', popupClosePlace);
 
-// карточки из массива
-const cardTemplate = document.querySelector('.card-template').content;
 
+// _____Галерея создания карточки______
+// карточки из массива
 initialCards.forEach(function (item) {
   const newCard = createCard(item);
   elementsList.append(newCard);
 });
+
+// лайк
+function setLike(evt) {
+  evt.target.classList.toggle("element__like-button_active");
+}
+
+// Корзина-удаление карточки
+function resetCard (evt) {
+    const seachCard =  evt.target.closest('.element');
+    seachCard.remove();
+};
 
 // действие по кнопке Создать
 function createCard(item) {
@@ -102,6 +113,11 @@ function createCard(item) {
   newCard.querySelector('.element__text').textContent = item.name;
   newCard.querySelector('.element__pic').alt = item.name;
   newCard.querySelector('.element__pic').src = item.link;
+  const likeButton = newCard.querySelector('.element__like-button');
+  likeButton.addEventListener("click", (evt) => setLike(evt));
+
+  const buttonReset = newCard.querySelector('.element__trash');
+  buttonReset.addEventListener("click", (evt) => resetCard(evt));
   return newCard;
 };
 
