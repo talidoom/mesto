@@ -6,6 +6,7 @@
     <meta name="author" content="Елгина Виктория">
     <link rel="stylesheet" type="text/css" href="./pages/index.css">
     <title>Место</title>
+    <script src="./script/cards.js" defer></script>
     <script src="./script/index.js" defer></script>
 </head>
 <body class="page">
@@ -44,7 +45,7 @@
     <!-- попап профиль-->
     <div class="popup popup_profile">
       <div class="popup__conteiner">
-        <button class="popup__close-but popup__close-but" type="button" aria-label="Закрыть"></button>
+        <button class="popup__close-but" type="button" aria-label="Закрыть"></button>
         <h2 class="popup__title">Редактировать профиль</h2>
         <form class="form" name="editprofile">
             <input class="form__text form__text_type_name" name="name" type="text" placeholder="Имя" required>
@@ -57,7 +58,7 @@
     <!-- попап добавление карточки-->
     <div class="popup popup_place">
       <div class="popup__conteiner">
-        <button class="popup__close-but popup__close-but" type="button" aria-label="Закрыть"></button>
+        <button class="popup__close-but" type="button" aria-label="Закрыть"></button>
         <h2 class="popup__title">Новое место</h2>
         <form class="form" name="editplace">
             <input class="form__text form__text_type_placename" name="placename" type="text" placeholder="Название" required>
@@ -77,5 +78,13 @@
         </div>
       </li>
     </template>
+
+     <!-- попап картинка на весь экран-->
+     <div class="popup popup_picture">
+      <div class="popup__pic-block">
+        <button class="popup__close-but" type="button" aria-label="Закрыть"></button>
+        <img class="popup__img" src="#" alt="#">
+      </div>
+    </div>
 </body>
 </html>
