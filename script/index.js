@@ -46,10 +46,11 @@ const elementsList = document.querySelector('.elements__list');
 const inputPlaceName = popupPlace.querySelector('.form__text_type_placename');
 const inputPlaceLink = popupPlace.querySelector('.form__text_type_link');
 const cardTemplate = document.querySelector('.card-template').content;
-const popupPic = document.querySelector('.popup_picture')
-const popupPicBlock = document.querySelector('.popup__pic-block')
+const popupPic = document.querySelector('.popup_picture');
+const popupPicBlock = document.querySelector('.popup__pic-block');
 const pictureCloseButton = popupPic.querySelector('.popup__close-but');
-const popupImg = popupPic.querySelector('.popup__img')
+const popupImg = popupPic.querySelector('.popup__img');
+const popupDescription = popupPic.querySelector('.popup__description');
 
 
 // открытие поп-апа места
@@ -87,6 +88,7 @@ function resetCard (evt) {
 function openPicture(name, link) {
   popupImg.alt = name;
   popupImg.src = link;
+  popupDescription.textContent = name;
   popupPic.classList.add('popup_opened');
 };
 
