@@ -3,19 +3,19 @@ const popupProfile = document.querySelector('.popup_profile');
 const profileEditButton = content.querySelector('.profile__edit-button');
 const profileAddButton = content.querySelector('.profile__add-button');
 const profileCloseButton = popupProfile.querySelector('.popup__close-but');
-const formElement = popupProfile.querySelector('.form');
-const nameInput = formElement.querySelector('.form__text_type_name');
-const jobInput = formElement.querySelector('.form__text_type_job');
+const formEditProfile = popupProfile.querySelector('.form');
+const nameInput = formEditProfile.querySelector('.form__text_type_name');
+const jobInput = formEditProfile.querySelector('.form__text_type_job');
 const profileName = content.querySelector('.profile__name');
 const profileJob = content.querySelector('.profile__job');
 
-const popupPlace = document.querySelector('.popup_place');
-const placeCloseButton = popupPlace.querySelector('.popup__close-but');
-const placeAddButton = popupPlace.querySelector('.profile__add-button');
-const formPlace = popupPlace.querySelector('.form');
+const popupAddPlace = document.querySelector('.popup_place');
+const placeCloseButton = popupAddPlace.querySelector('.popup__close-but');
+const placeAddButton = popupAddPlace.querySelector('.profile__add-button');
+const formAddPlace = popupAddPlace.querySelector('.form');
 const elementsList = document.querySelector('.elements__list');
-const inputPlaceName = popupPlace.querySelector('.form__text_type_placename');
-const inputPlaceLink = popupPlace.querySelector('.form__text_type_link');
+const inputPlaceName = popupAddPlace.querySelector('.form__text_type_placename');
+const inputPlaceLink = popupAddPlace.querySelector('.form__text_type_link');
 const cardTemplate = document.querySelector('.card-template').content;
 const popupPicture = document.querySelector('.popup_picture');
 const pictureCloseButton = popupPicture.querySelector('.popup__close-but');
@@ -39,7 +39,7 @@ function closePopup(item) {
 }
 
 // Отправка формы профиля
-function handleFormSubmit (evt) {
+function submitEditProfileForm (evt) {
     evt.preventDefault();
     profileName.textContent = nameInput.value;
     profileJob.textContent = jobInput.value;
@@ -68,7 +68,7 @@ function setLike(evt) {
 };
 
 // Корзина-удаление карточки
-function resetCard (evt) {
+function deleteCard (evt) {
     const seachCard =  evt.target.closest('.element');
     seachCard.remove();
 };
@@ -84,26 +84,26 @@ function createCard(item) {
   likeButton.addEventListener("click", (evt) => setLike(evt));
 
   const buttonReset = newCard.querySelector('.element__trash');
-  buttonReset.addEventListener("click", (evt) => resetCard(evt));
+  buttonReset.addEventListener("click", (evt) => deleteCard(evt));
 
   elementImg.addEventListener('click', () => openPicture(item.name, item.link));
   return newCard;
 };
 
 // кнопка создать попап
-formPlace.addEventListener('submit', function(evt) {
+formAddPlace.addEventListener('submit', function(evt) {
   evt.preventDefault();
   const newCard = createCard({name: inputPlaceName.value, link: inputPlaceLink.value});
   elementsList.prepend(newCard);
-  closePopup(popupPlace);
+  closePopup(popupAddPlace);
   evt.target.reset();
 });
 
 
 // Слушатели открытия-закрытия по-ап
 profileEditButton.addEventListener('click', showPopupProfile); // открытие поп-ап профиля
-profileAddButton.addEventListener('click',() => openPopup(popupPlace)); // открытие поп-ап галлереи
+profileAddButton.addEventListener('click',() => openPopup(popupAddPlace)); // открытие поп-ап галлереи
 profileCloseButton.addEventListener('click',() => closePopup(popupProfile)); // закрытие поп-ап профиля
-placeCloseButton.addEventListener('click',() => closePopup(popupPlace)); // закрытие поп-ап галереи
-formElement.addEventListener('submit', handleFormSubmit); // отправка формы профиля
+placeCloseButton.addEventListener('click',() => closePopup(popupAddPlace)); // закрытие поп-ап галереи
+formEditProfile.addEventListener('submit', submitEditProfileForm); // отправка формы профиля
 pictureCloseButton.addEventListener('click',() => closePopup(popupPicture)); // закрытие поп-ап галереи
