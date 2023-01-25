@@ -6,8 +6,24 @@ const validationConfig = {
   inputErrorClass: 'form__input_type_error',
   errorClass: 'form__input-error',
   errorTextClass: 'form__input-error_active',
-}
+};
 
+// функция добавления класса ошибки
+function activateError(input, form, config) {
+  const error = form.querySelector(`#${input.name}-error`);
+  error.classList.add(config.errorTextClass);
+  error.textContent = input.validationMessage;
+  input.classList.add('form__input_type_error');
+};
+
+// функция удаления класса ошибки
+function resetError (input, form, config) {
+  const error = form.querySelector(`#${input.name}-error`);
+  error.classList.remove(config.errorTextClass);
+  input.classList.remove('form__input_type_error');
+};
+
+// функция проверки валидности
 function setInputListeners (form, config) {
   const submitButton = form.querySelector(config.buttonSelector);
   const inputList = Array.from(form.querySelectorAll(config.inputSelector));
@@ -25,6 +41,7 @@ function setInputListeners (form, config) {
   })
 };
 
+// функция вызова проверки валидности
 function enableValidation(config) {
   const formList = Array.from(document.querySelectorAll(config.formSelector));
   formList.forEach(function (form) {
@@ -34,15 +51,17 @@ function enableValidation(config) {
 };
 enableValidation(validationConfig);
 
+// функция чтобы не отображалась ошибки при повторном открытии окна
 function resetValidition (form, config) {
   const submitButton = form.querySelector(config.buttonSelector);
   const inputList = Array.from(form.querySelectorAll(config.inputSelector));
-  inputList.forEach(function(input){
+  inputList.forEach(function (input){
     resetError(input, form, config);
     toggleButtonState(inputList, submitButton);
   })
 };
 
+// функции для кнопки
 function checkInputValidity (inputs) {
   return inputs.some(input => !input.checkValidity())
 };
@@ -53,17 +72,4 @@ function toggleButtonState (inputs, button) {
   } else {
     button.disabled = false;
   }
-}
-
-function activateError(input, form, config) {
-  const error = form.querySelector(`#${input.name}-error`);
-  error.classList.add(config.errorTextClass);
-  error.textContent = input.validationMessage;
-  input.classList.add('form__input_type_error');
-};
-
-function resetError (input, form, config) {
-  const error = form.querySelector(`#${input.name}-error`);
-  error.classList.remove(config.errorTextClass);
-  input.classList.remove('form__input_type_error');
 };

@@ -29,6 +29,7 @@ function openPopup(item) {
   item.classList.add('popup_opened');
 }
 
+// функцмя для открытмя попапа место
 function showPopupAddPlace () {
   formAddPlace.reset();
   resetValidition(popupAddPlace, validationConfig);
