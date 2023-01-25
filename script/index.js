@@ -36,7 +36,7 @@ function showPopupAddPlace () {
   openPopup(popupAddPlace);
 }
 
-// внесение формы профиля
+// внесение формы профиляя
 function showPopupProfile() {
   nameInput.value = profileName.textContent;
   jobInput.value = profileJob.textContent;
