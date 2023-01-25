@@ -3,9 +3,11 @@ const popupProfile = document.querySelector('.popup_profile');
 const profileEditButton = content.querySelector('.profile__edit-button');
 const profileAddButton = content.querySelector('.profile__add-button');
 const profileCloseButton = popupProfile.querySelector('.popup__close-but');
+
+const formError = content.querySelector('.form__input-error');
 const formEditProfile = popupProfile.querySelector('.form');
-const nameInput = formEditProfile.querySelector('.form__text_type_name');
-const jobInput = formEditProfile.querySelector('.form__text_type_job');
+const nameInput = formEditProfile.querySelector('.form__input_type_name');
+const jobInput = formEditProfile.querySelector('.form__input_type_job');
 const profileName = content.querySelector('.profile__name');
 const profileJob = content.querySelector('.profile__job');
 
@@ -14,8 +16,8 @@ const placeCloseButton = popupAddPlace.querySelector('.popup__close-but');
 const placeAddButton = popupAddPlace.querySelector('.profile__add-button');
 const formAddPlace = popupAddPlace.querySelector('.form');
 const elementsList = document.querySelector('.elements__list');
-const inputPlaceName = popupAddPlace.querySelector('.form__text_type_placename');
-const inputPlaceLink = popupAddPlace.querySelector('.form__text_type_link');
+const inputPlaceName = popupAddPlace.querySelector('.form__input_type_placename');
+const inputPlaceLink = popupAddPlace.querySelector('.form__input_type_link');
 const cardTemplate = document.querySelector('.card-template').content;
 const popupPicture = document.querySelector('.popup_picture');
 const pictureCloseButton = popupPicture.querySelector('.popup__close-but');
@@ -26,17 +28,25 @@ const popupDescription = popupPicture.querySelector('.popup__description');
 function openPopup(item) {
   item.classList.add('popup_opened');
 }
+
+function showPopupAddPlace () {
+  formAddPlace.reset();
+  resetValidition(popupAddPlace, validationConfig);
+  openPopup(popupAddPlace);
+}
+
 // внесение формы профиля
 function showPopupProfile() {
   nameInput.value = profileName.textContent;
   jobInput.value = profileJob.textContent;
+  resetValidition(formEditProfile, validationConfig);
   openPopup(popupProfile);
 };
 
 // Закрытие поп-апа
 function closePopup(item) {
   item.classList.remove('popup_opened');
-}
+};
 
 // Отправка формы профиля
 function submitEditProfileForm (evt) {
@@ -53,7 +63,6 @@ function openPicture(name, link) {
   popupDescription.textContent = name;
   openPopup(popupPicture);
 };
-
 
 // ________________________________Галерея создания карточки______
 // карточки из массива
@@ -100,10 +109,43 @@ formAddPlace.addEventListener('submit', function(evt) {
 });
 
 
+
 // Слушатели открытия-закрытия по-ап
 profileEditButton.addEventListener('click', showPopupProfile); // открытие поп-ап профиля
-profileAddButton.addEventListener('click',() => openPopup(popupAddPlace)); // открытие поп-ап галлереи
+profileAddButton.addEventListener('click', showPopupAddPlace); // открытие поп-ап галлереи
 profileCloseButton.addEventListener('click',() => closePopup(popupProfile)); // закрытие поп-ап профиля
 placeCloseButton.addEventListener('click',() => closePopup(popupAddPlace)); // закрытие поп-ап галереи
 formEditProfile.addEventListener('submit', submitEditProfileForm); // отправка формы профиля
 pictureCloseButton.addEventListener('click',() => closePopup(popupPicture)); // закрытие поп-ап галереи
+
+// function closePopupEsc(evt) {
+//   if(evt.key === 'Escape') {
+//     closePopup(popupProfile);
+//   }
+// };
+// popupProfile.addEventListener('keydown', closePopupEsc);
+
+popupProfile.addEventListener('keydown', (evt) => {
+  if(evt.key === 'Escape') {
+    closePopup(popupProfile);
+  }
+});
+popupProfile.addEventListener('click', (evt) => {
+  if(evt.target === evt.currentTarget){
+    closePopup(popupProfile);
+  }
+});
+
+
+
+popupAddPlace.addEventListener('click', (evt) => {
+  if(evt.target === evt.currentTarget){
+    closePopup(popupAddPlace);
+  }
+});
+
+popupPicture.addEventListener('click', (evt) => {
+  if(evt.target === evt.currentTarget){
+    closePopup(popupPicture);
+  }
+});

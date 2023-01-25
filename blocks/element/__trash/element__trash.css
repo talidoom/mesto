@@ -7,9 +7,11 @@
   background: url('../../../images/img-element/Trash.svg');
   border: none;
   cursor: pointer;
+  filter: drop-shadow(2px 4px 6px #808080);
   transition: opacity 0.3s;
 }
 
 .element__trash:hover {
+  filter: drop-shadow(2px 4px 6px #000);
   opacity: 0.6;
 }
