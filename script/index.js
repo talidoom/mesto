@@ -24,29 +24,49 @@ const pictureCloseButton = popupPicture.querySelector('.popup__close-but');
 const popupImg = popupPicture.querySelector('.popup__img');
 const popupDescription = popupPicture.querySelector('.popup__description');
 
+// функция Esc
+function handleEscPopup (evt) {
+  evt.preventDefault();
+  if(evt.key === 'Escape') {
+    const activePopup = document.querySelector('.popup_opened');
+    closePopup(activePopup);
+  }
+};
+
+// Закрытие поп-апа
+function closePopup(item) {
+  document.removeEventListener('keyup', handleEscPopup);
+  item.classList.remove('popup_opened');
+};
+
 // Открытие поп-апа
 function openPopup(item) {
+  document.addEventListener('keyup', handleEscPopup);
   item.classList.add('popup_opened');
-}
+};
 
 // функцмя для открытмя попапа место
 function showPopupAddPlace () {
   formAddPlace.reset();
   resetValidition(popupAddPlace, validationConfig);
   openPopup(popupAddPlace);
-}
+};
 
+// функция закрытия через оверлей
+function handleOverley (evt) {
+  if(evt.target === evt.currentTarget){
+   const activePopup = document.querySelector('.popup_opened');
+   closePopup(activePopup);
+ }
+};
+
+// __________форма профиля_____________
 // внесение формы профиляя
 function showPopupProfile() {
   nameInput.value = profileName.textContent;
   jobInput.value = profileJob.textContent;
   resetValidition(formEditProfile, validationConfig);
   openPopup(popupProfile);
-};
-
-// Закрытие поп-апа
-function closePopup(item) {
-  item.classList.remove('popup_opened');
 };
 
 // Отправка формы профиля
@@ -109,6 +129,14 @@ formAddPlace.addEventListener('submit', function(evt) {
   evt.target.reset();
 });
 
+// функция Esc
+function handleEsc (evt) {
+  evt.preventDefault();
+  const activePopup = document.querySelector('.popup_opened')
+  if(evt.key === 'Escape') {
+    closePopup(activePopup);
+  }
+};
 
 
 // Слушатели открытия-закрытия по-ап
@@ -118,35 +146,6 @@ profileCloseButton.addEventListener('click',() => closePopup(popupProfile)); // 
 placeCloseButton.addEventListener('click',() => closePopup(popupAddPlace)); // закрытие поп-ап галереи
 formEditProfile.addEventListener('submit', submitEditProfileForm); // отправка формы профиля
 pictureCloseButton.addEventListener('click',() => closePopup(popupPicture)); // закрытие поп-ап галереи
-
-// function closePopupEsc(evt) {
-//   if(evt.key === 'Escape') {
-//     closePopup(popupProfile);
-//   }
-// };
-// popupProfile.addEventListener('keydown', closePopupEsc);
-
-popupProfile.addEventListener('keydown', (evt) => {
-  if(evt.key === 'Escape') {
-    closePopup(popupProfile);
-  }
-});
-popupProfile.addEventListener('click', (evt) => {
-  if(evt.target === evt.currentTarget){
-    closePopup(popupProfile);
-  }
-});
-
-
-
-popupAddPlace.addEventListener('click', (evt) => {
-  if(evt.target === evt.currentTarget){
-    closePopup(popupAddPlace);
-  }
-});
-
-popupPicture.addEventListener('click', (evt) => {
-  if(evt.target === evt.currentTarget){
-    closePopup(popupPicture);
-  }
-});
+popupProfile.addEventListener('click', handleOverley);
+popupAddPlace.addEventListener('click', handleOverley);
+popupPicture.addEventListener('click', handleOverley);
