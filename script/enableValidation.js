@@ -13,14 +13,14 @@ function activateError(input, form, config) {
   const error = form.querySelector(`#${input.name}-error`);
   error.classList.add(config.errorTextClass);
   error.textContent = input.validationMessage;
-  input.classList.add('form__input_type_error');
+  input.classList.add(config.inputErrorClass);
 };
 
 // функция удаления класса ошибки
 function resetError (input, form, config) {
   const error = form.querySelector(`#${input.name}-error`);
   error.classList.remove(config.errorTextClass);
-  input.classList.remove('form__input_type_error');
+  input.classList.remove(config.inputErrorClass);
 };
 
 // функция проверки валидности

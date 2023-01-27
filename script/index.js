@@ -1,20 +1,20 @@
 const content = document.querySelector('.content');
+const popups = content.querySelectorAll('.popup');
 const popupProfile = document.querySelector('.popup_profile');
 const profileEditButton = content.querySelector('.profile__edit-button');
 const profileAddButton = content.querySelector('.profile__add-button');
 const profileCloseButton = popupProfile.querySelector('.popup__close-but');
 
-const formError = content.querySelector('.form__input-error');
-const formEditProfile = popupProfile.querySelector('.form');
+const formEditProfile = document.forms.editprofile;
 const nameInput = formEditProfile.querySelector('.form__input_type_name');
 const jobInput = formEditProfile.querySelector('.form__input_type_job');
 const profileName = content.querySelector('.profile__name');
 const profileJob = content.querySelector('.profile__job');
-
 const popupAddPlace = document.querySelector('.popup_place');
 const placeCloseButton = popupAddPlace.querySelector('.popup__close-but');
 const placeAddButton = popupAddPlace.querySelector('.profile__add-button');
-const formAddPlace = popupAddPlace.querySelector('.form');
+
+const formAddPlace = document.forms.editplace;
 const elementsList = document.querySelector('.elements__list');
 const inputPlaceName = popupAddPlace.querySelector('.form__input_type_placename');
 const inputPlaceLink = popupAddPlace.querySelector('.form__input_type_link');
@@ -55,8 +55,7 @@ function showPopupAddPlace () {
 // функция закрытия через оверлей
 function handleOverley (evt) {
   if(evt.target === evt.currentTarget){
-   const activePopup = document.querySelector('.popup_opened');
-   closePopup(activePopup);
+   closePopup(evt.currentTarget);
  }
 };
 
@@ -128,16 +127,6 @@ formAddPlace.addEventListener('submit', function(evt) {
   closePopup(popupAddPlace);
   evt.target.reset();
 });
-
-// функция Esc
-function handleEsc (evt) {
-  evt.preventDefault();
-  const activePopup = document.querySelector('.popup_opened')
-  if(evt.key === 'Escape') {
-    closePopup(activePopup);
-  }
-};
-
 
 // Слушатели открытия-закрытия по-ап
 profileEditButton.addEventListener('click', showPopupProfile); // открытие поп-ап профиля
