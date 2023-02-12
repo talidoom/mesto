@@ -7,69 +7,48 @@ const validationConfig = {
   errorClass: 'form__input-error',
   errorTextClass: 'form__input-error_active',
 };
-
-// функция добавления класса ошибки
-function activateError(input, form, config) {
-  const error = form.querySelector(`#${input.name}-error`);
-  error.classList.add(config.errorTextClass);
-  error.textContent = input.validationMessage;
-  input.classList.add(config.inputErrorClass);
-};
-
-// функция удаления класса ошибки
-function resetError (input, form, config) {
-  const error = form.querySelector(`#${input.name}-error`);
-  error.classList.remove(config.errorTextClass);
-  input.classList.remove(config.inputErrorClass);
-};
-
-// функция проверки валидности
-function setInputListeners (form, config) {
-  const submitButton = form.querySelector(config.buttonSelector);
-  const inputList = Array.from(form.querySelectorAll(config.inputSelector));
-  inputList.forEach(function(input){
-    input.addEventListener('input', (evt) =>{
-      if(input.checkValidity()) {
-        resetError(input, form, config);
-      } else {
-        activateError(input, form, config);
-        evt.preventDefault();
-      }
-      toggleButtonState(inputList, submitButton);
-    })
-    toggleButtonState(inputList, submitButton);
-  })
-};
-
-// функция вызова проверки валидности
-function enableValidation(config) {
-  const formList = Array.from(document.querySelectorAll(config.formSelector));
-  formList.forEach(function (form) {
-    form.addEventListener('submit', (evt) => evt.preventDefault());
-    setInputListeners(form, config);
-  })
-};
-enableValidation(validationConfig);
-
-// функция чтобы не отображалась ошибки при повторном открытии окна
-function resetValidition (form, config) {
-  const submitButton = form.querySelector(config.buttonSelector);
-  const inputList = Array.from(form.querySelectorAll(config.inputSelector));
-  inputList.forEach(function (input){
-    resetError(input, form, config);
-    toggleButtonState(inputList, submitButton);
-  })
-};
-
-// функции для кнопки
-function checkInputValidity (inputs) {
-  return inputs.some(input => !input.checkValidity())
-};
-
-function toggleButtonState (inputs, button) {
-  if (checkInputValidity(inputs)) {
-    button.disabled = true;
-  } else {
-    button.disabled = false;
+class formValidation {
+  constructor(config, form) {
+    this._config = config;
+    this._form = form;
+    this._submitButton = this._form.querySelector(config.buttonSelector);
+    this._inputList = Array.from(this._form.querySelectorAll(config.inputSelector));
   }
+  enableValidation() {
+    this._form.addEventListener('submit', (evt) => evt.preventDefault());
+    this._setInputListeners();
+  };
+  _setInputListeners() {
+    this._inputList.forEach((input) => {
+      input.addEventListener('input', () =>{
+        if(input.checkValidity()) {
+          this._resetError(input);
+        } else {
+          this._activateError(input);
+        }
+        this._toggleButtonState();
+      })
+      this._toggleButtonState();
+    });
+  }
+  _resetError (input) {
+    const error = this._form.querySelector(`#${input.name}-error`);
+    error.classList.remove(this._config.errorTextClass);
+    input.classList.remove(this._config.inputErrorClass);
+  };
+  _activateError(input) {
+    const error = this._form.querySelector(`#${input.name}-error`);
+    error.classList.add(this._config.errorTextClass);
+    error.textContent = input.validationMessage;
+    input.classList.add(this._config.inputErrorClass);
+  };
+  resetValidition () {
+    this._inputList.forEach((input) => {
+      this._resetError(input);
+    });
+    this._toggleButtonState();
+  };
+  _toggleButtonState () {
+    this._submitButton.disabled = !this._form.checkValidity();
+  };
 };
