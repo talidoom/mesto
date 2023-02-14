@@ -1,3 +1,6 @@
+import { initialCards, Card } from './Card.js';
+import { validationConfig, formValidation } from './FormValidator.js';
+
 const content = document.querySelector('.content');
 const popupProfile = document.querySelector('.popup_profile');
 const profileEditButton = content.querySelector('.profile__edit-button');
@@ -17,6 +20,8 @@ const popupDescription = popupPicture.querySelector('.popup__description');
 
 const formAddPlaceValidator = new formValidation(validationConfig, formAddPlace);
 const formEditProfileValidator = new formValidation(validationConfig, formEditProfile);
+
+
 formAddPlaceValidator.enableValidation();
 formEditProfileValidator.enableValidation();
 
@@ -112,3 +117,5 @@ formAddPlace.addEventListener('submit', function(evt) {
 profileEditButton.addEventListener('click', showPopupProfile); // открытие поп-ап профиля
 profileAddButton.addEventListener('click', showPopupAddPlace); // открытие поп-ап галлереи
 formEditProfile.addEventListener('submit', submitEditProfileForm); // отправка формы профиля
+
+

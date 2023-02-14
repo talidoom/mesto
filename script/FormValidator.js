@@ -1,4 +1,4 @@
-const validationConfig = {
+export const validationConfig = {
   formSelector: '.form',
   inputSelector: '.form__input',
   submitButtonSelector: '.form__button',
@@ -7,7 +7,7 @@ const validationConfig = {
   errorClass: 'form__input-error',
   errorTextClass: 'form__input-error_active',
 };
-class formValidation {
+export class formValidation {
   constructor(config, form) {
     this._config = config;
     this._form = form;

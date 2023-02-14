@@ -1,5 +1,5 @@
 // массив карточки
-const initialCards = [
+export const initialCards = [
   {
     name: 'Архыз',
     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
@@ -26,7 +26,7 @@ const initialCards = [
   }
 ];
 
-class Card {
+export class Card {
   constructor(data, templateSelector, openPicture) {
     this._name = data.name;
     this._link = data.link;
@@ -59,10 +59,3 @@ class Card {
     return this._element;
   }
 }
-
-// initialCards.forEach(function (item) {
-//   const elementsList = document.querySelector('.elements__list');
-//   const newCard = new Card(item, '.card-template', openPicture);
-//   const cardElement = newCard.createCard();
-//   elementsList.append(cardElement);
-// });
