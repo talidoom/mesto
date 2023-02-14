@@ -33,14 +33,14 @@ function handleEscPopup (evt) {
 function closePopup(item) {
   document.removeEventListener('keyup', handleEscPopup);
   item.classList.remove('popup_opened');
-  item.removeEventListener('click', handleOverley);
+  item.removeEventListener('click', closePopupByClick);
 };
 
 // Открытие поп-апа
 function openPopup(item) {
   document.addEventListener('keyup', handleEscPopup);
   item.classList.add('popup_opened');
-  item.addEventListener('click', handleOverley);
+  item.addEventListener('click', closePopupByClick);
 };
 
 // функцмя для открытмя попапа место
@@ -51,7 +51,7 @@ function showPopupAddPlace () {
 };
 
 // функция закрытия через оверлей
-function handleOverley (evt) {
+function closePopupByClick (evt) {
   if(evt.target === evt.currentTarget){
    closePopup(evt.currentTarget);
   }
