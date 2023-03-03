@@ -1,37 +1,9 @@
 // массив карточки
-export const initialCards = [
-  {
-    name: 'Архыз',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-  },
-  {
-    name: 'Челябинская область',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-  },
-  {
-    name: 'Иваново',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-  },
-  {
-    name: 'Камчатка',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-  },
-  {
-    name: 'Холмогорский район',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-  },
-  {
-    name: 'Байкал',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-  }
-];
-
-export class Card {
-  constructor(data, templateSelector, openPicture) {
-    this._name = data.name;
-    this._link = data.link;
+export default class Card {
+  constructor(name, link, templateSelector, openPicture) {
+    this._name = name;
+    this._link = link;
     this._templateSelector = templateSelector;
-
     this._openPicture = openPicture;
   }
   _getTemplate() {
@@ -49,7 +21,7 @@ export class Card {
     this._element.querySelector('.element__trash').addEventListener("click", (evt) => this._deleteCard(evt));
     this._elementPic.addEventListener('click', () => this._openPicture(this._name, this._link));
   }
-  createCard () {
+  generateCard () {
     this._element = this._getTemplate();
     this._element.querySelector('.element__text').textContent = this._name;
     this._elementPic = this._element.querySelector('.element__pic');
