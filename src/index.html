@@ -4,19 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Елгина Виктория">
-    <link rel="stylesheet" type="text/css" href="./pages/index.css">
     <title>Место</title>
 </head>
 <body class="page">
     <!-- шапка -->
     <header class="header">
-      <img src="./images/logo-header.svg" class="header__logo" alt="Логотип">
+      <img src="<%=require('./images/logo-header.svg')%>" class="header__logo" alt="Логотип">
     </header>
 
     <main class="content">
       <!-- профиль -->
       <section class="profile">
-        <img src="./images/profile-ava.jpg" class="profile__avatar" alt="Аватар">
+        <img src="<%=require('./images/profile-ava.jpg')%>" class="profile__avatar" alt="Аватар">
         <div class="profile__info">
           <div class="profile__text">
             <h1 class="profile__name">Лара Крофт</h1>
@@ -90,8 +89,5 @@
         <p class="popup__description"></p>
       </div>
     </div>
-
-  <!-- модуль js -->
-  <script type="module" src="./script/index.js"></script>
 </body>
 </html>

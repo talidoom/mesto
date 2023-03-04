@@ -5,6 +5,7 @@ import PopupWithImages from './components/PopupWithImage.js';
 import PopupWithForm from './components/PopupWithForm.js';
 import UserInfo from './components/UserInfo.js';
 import FormValidation from './components/FormValidator.js';
+import '../pages/index.css';
 
 const content = document.querySelector('.content');
 const popupProfile = document.querySelector('.popup_profile');
