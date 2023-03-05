@@ -3,30 +3,23 @@ export default class Popup {
         this._popup = document.querySelector(popupSelector);
         this._handleEscClose = this._handleEscClose.bind(this);
         this._handleOverlayClose = this._handleOverlayClose.bind(this);
-        console.log(this);
     }
     open () {
         this._popup.classList.add('popup_opened');
-        this._popup.addEventListener('keyup', this._handleEscClose);
-        this._popup.addEventListener("mousedown", this._handleOverlayClose);
+        document.addEventListener('keyup', this._handleEscClose);
     }
     close() {
         this._popup.classList.remove('popup_opened');
-        this._popup.removeEventListener('keyup', this._handleEscClose);
-        this._popup.removeEventListener("mousedown", this._handleOverlayClose);
+        document.removeEventListener('keyup', this._handleEscClose);
     }
     _handleOverlayClose (evt) {
-        console.log('Enter to handle close');
         if(evt.target === evt.currentTarget){
-            console.log('Evt  handle close triggered');
             this.close();
         }
       };
     _handleEscClose(evt) {
-        console.log('Enter to handle close');
         evt.preventDefault();
         if(evt.key === 'Escape') {
-            console.log('Evt  handle close triggered');
             this.close();
         }
     }
@@ -35,6 +28,6 @@ export default class Popup {
         closeButton.addEventListener("click", () => { 
             this.close();
         });
-
+        this._popup.addEventListener("mousedown", this._handleOverlayClose);
     }
 }
