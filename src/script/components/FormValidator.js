@@ -23,13 +23,13 @@ export default class FormValidation {
     });
   }
   _resetError (input) {
-    const error = this._form.querySelector(`#${input.name}-error`);
+    const error = this._form.querySelector(`#${input.id}-error`);
     error.classList.remove(this._config.errorTextClass);
     input.classList.remove(this._config.inputErrorClass);
   };
   
   _activateError(input) {
-    const error = this._form.querySelector(`#${input.name}-error`);
+    const error = this._form.querySelector(`#${input.id}-error`);
     error.classList.add(this._config.errorTextClass);
     error.textContent = input.validationMessage;
     input.classList.add(this._config.inputErrorClass);
