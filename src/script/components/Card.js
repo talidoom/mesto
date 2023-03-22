@@ -15,21 +15,22 @@ export default class Card {
   _getElementFromTemplate() {
     return document.querySelector(this._templateSelector).content.querySelector('.element').cloneNode(true);
   }
+  
   _getViewTrash() {
-    if (this._ownerId === this._currentUserId) {
-      this._element.querySelector('.element__trash').classList.add('element__trash_show');
+    if (this._ownerId !== this._currentUserId) {
+      this._element.querySelector('.element__trash').remove();
     }
   }
 
   _setEventListeners() {
-    this._element.querySelector('.element__trash').addEventListener('click', () => this._deleteCard());
+    this._element.querySelector('.element__trash').addEventListener('click', () => this.deleteCard());
     this._element.querySelector('.element__like-button').addEventListener('click', () => this._likeClick(this));
     this._element.querySelector('.element__pic').addEventListener('click', () => {
       this._openPic(this._name, this._link);
     });
   }
 
-  _deleteCard() {
+  deleteCard() {
     this._deleteCardApi(this._id, this._element);
   };
 

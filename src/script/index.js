@@ -105,7 +105,8 @@ function deleteCard(id, elem) {
 };
 
 function createCard(item) {
-  const card = new Card(item,
+  const card = new Card(
+    item,
     currentUserId,
     '.card-template',
     deleteCard,

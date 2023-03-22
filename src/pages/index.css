@@ -12,6 +12,7 @@
 @import url(../blocks/popup/__pic-block/popup__pic-block.css);
 @import url(../blocks/popup/__img/popup__img.css);
 @import url(../blocks/form/form.css);
+@import url(../blocks/form/__margin-top/form__margin-top.css);
 @import url(../blocks/form/__input-error/form__input-error.css);
 @import url(../blocks/form/__input-error/_active/form__input-error_active.css);
 @import url(../blocks/form/__input/form__input.css);

@@ -5,12 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Елгина Виктория">
     <title>Место</title>
-    <!-- <link rel="stylesheet" href="./pages/index.css"> -->
 </head>
 <body class="page">
     <!-- шапка -->
     <header class="header">
-      <!-- <img src="./images/logo-header.svg" class="header__logo" alt="Логотип"> -->
       <img src="<%=require('./images/logo-header.svg')%>" class="header__logo" alt="Логотип">
     </header>
 
@@ -103,13 +101,13 @@
 
     <!-- попап подтверждения удаления карточки -->
     <div class="popup popup__delete-card">
-        <form class="popup__conteiner" name="editprofile" novalidate>
+        <div class="popup__conteiner">
           <button class="popup__close-but" type="button" aria-label="Закрыть"></button>
           <h2 class="popup__title">Вы уверены?</h2>
-          <form class="form" name ="deletecard">
+          <form class="form form__margin-top" name ="deletecard">
             <button class="form__button" type="submit">Да</button>
           </form>
-        </form>
+        </div>
     </div>
 
     <!-- попап редактирования аватара-->
@@ -124,7 +122,5 @@
         </form>
       </div>
     </div>
-
-    <!-- <script type="module" src="./script/index.js"></script> -->
 </body>
 </html>

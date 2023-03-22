@@ -10,7 +10,6 @@ export default class Api {
           authorization: this._token,
       };
   }
-
   _getJson(res) {
       if (res.ok) {
           return res.json();
@@ -37,13 +36,13 @@ export default class Api {
           headers: this._getHeaders(),
       }).then(this._getJson);
   }
-  
+
   deleteCard(id) {
     return fetch(`${this._url}/cards/${id}`, {
         method: "DELETE",
         headers: this._getHeaders(),
     }).then(this._getJson);
-    }
+  }
 
   setUserInfo(item) {
       return fetch(`${this._url}/users/me`, {
