@@ -27,17 +27,18 @@ export default class FormValidation {
     error.classList.remove(this._config.errorTextClass);
     input.classList.remove(this._config.inputErrorClass);
   };
+  
   _activateError(input) {
     const error = this._form.querySelector(`#${input.name}-error`);
     error.classList.add(this._config.errorTextClass);
     error.textContent = input.validationMessage;
     input.classList.add(this._config.inputErrorClass);
   };
-  resetValidition () {
+  resetValidition() {
+    this._toggleButtonState();
     this._inputList.forEach((input) => {
       this._resetError(input);
     });
-    this._toggleButtonState();
   };
   _toggleButtonState () {
     this._submitButton.disabled = !this._form.checkValidity();

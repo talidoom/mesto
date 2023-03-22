@@ -1,15 +1,12 @@
 export default class Section {
-    constructor({items, renderer}, containerSelector) {
-        this._initialCards = items;
+    constructor({renderer}, selector) {
         this._renderer = renderer;
-        this._container = document.querySelector(containerSelector);
+        this._container = document.querySelector(selector);
     }
-    renderItems() {
-        this._initialCards.forEach((element) => {
-            this._renderer(element);
-          });
+    renderItems(items) {
+        items.forEach(item => this._renderer(item));
     }
-    addItem(card) {
-        this._container.prepend(card);
+    setItem(elem) {
+        this._container.prepend(elem);
       }
 }

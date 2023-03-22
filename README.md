@@ -12,6 +12,7 @@
   
 **GitHub:**
 * [Ссылка на макет в GitHub](https://talidoom.github.io/mesto/index.html)
+* [Ссылка для тестирования сайта](https://talidoom.github.io/mesto/index.html)
   
 ---
 **Применяемые технолгии:**
