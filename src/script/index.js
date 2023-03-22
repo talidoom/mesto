@@ -29,15 +29,15 @@ formEditProfileValidator.enableValidation();
 formEditAvatarValidator.enableValidation();
 
 // попап профиля
-const editProfilePopup = new PopupWithForm(".popup_profile", handleFormSubmit);
+const editProfilePopup = new PopupWithForm(".popup_type_profile", handleFormSubmit);
 // попап карточки
-const popupAddPlace = new PopupWithForm(".popup_place", createNewCard);
+const popupAddPlace = new PopupWithForm(".popup_type_place", createNewCard);
 // попап изменения аватара
-const popapAvatar = new PopupWithForm(".popup__edit-avatar", changeAvatar);
+const popapAvatar = new PopupWithForm(".popup_type_edit-avatar", changeAvatar);
 // попап открытой картинки
-const scaleImagePopup = new PopupWithImage(".popup_picture");
+const scaleImagePopup = new PopupWithImage(".popup_type_picture");
 // попап удаления
-const popupDelete = new PopupDelete('.popup__delete-card');
+const popupDelete = new PopupDelete('.popup_type_delete-card');
 
 const api = new Api('https://mesto.nomoreparties.co/v1/cohort-61', '246e7422-483c-4e41-82f4-4aaaa5291029');
 
