@@ -11,7 +11,7 @@
 .popup__pic-block{align-items:flex-start;display:flex;flex-direction:column;justify-content:center;position:relative}
 .popup__img{max-height:75vh;max-width:75vw;-o-object-fit:contain;object-fit:contain;-o-object-position:center center;object-position:center center}
 .form{display:flex;flex-direction:column;margin-top:54px;width:358px}@media screen and (max-width:480px){.form{margin-top:75px;width:238px}}
-.form__margin-top{margin-top:5px}
+.margin-top{margin-top:5px}
 .form__input-error{color:red;display:block;font-size:12px;font-weight:400;line-height:15px;margin-bottom:-15px;margin-top:5px;min-height:30px;opacity:0;transition:opacity .3s}
 .form__input-error_active{opacity:1}
 .form__input{border:none;border-bottom:1px solid rgba(0,0,0,.2);box-sizing:border-box;font-size:14px;font-weight:400;line-height:17px;margin:0;outline:none;padding-bottom:13px;text-align:left;width:358px}.form__input:last-of-type{margin-top:15px}@media screen and (max-width:480px){.form__input{width:238px}}
