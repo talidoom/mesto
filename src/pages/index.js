@@ -1,13 +1,13 @@
-import Card from './components/Card.js';
-import Section from "./components/Section.js";
-import { validationConfig } from './constants/constants.js';
-import PopupWithImage from './components/PopupWithImage.js';
-import PopupWithForm from './components/PopupWithForm.js';
-import PopupDelete from './components/PopupDelete.js';
-import UserInfo from './components/UserInfo.js';
-import FormValidation from './components/FormValidator.js';
-import Api from './components/API.js';
-import '../pages/index.css';
+import Card from '../script/components/Card.js';
+import Section from "../script/components/Section.js";
+import { validationConfig } from '../script/constants/constants.js';
+import PopupWithImage from '../script/components/PopupWithImage.js';
+import PopupWithForm from '../script/components/PopupWithForm.js';
+import PopupDelete from '../script/components/PopupDelete.js';
+import UserInfo from '../script/components/UserInfo.js';
+import FormValidation from '../script/components/FormValidator.js';
+import Api from '../script/components/API.js';
+import './index.css';
 
 const content = document.querySelector('.content');
 const profileEditButton = content.querySelector('.profile__edit-button');
@@ -72,6 +72,7 @@ function changeAvatar (item) {
     popapAvatar.renderLoading(true);
     api.setUserAvatar(item)
       .then((data) => {
+        // debugger;
         user.changeAvatarPicture(data);
         popapAvatar.close();
       }).catch((err) => {

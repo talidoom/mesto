@@ -30,11 +30,16 @@ export default class Popup {
     }
 
     renderLoading(loading) {
+        // if (loading) {
+        //   this._button.value = "Сохранение..."
+        // } else {
+        //   this._button.value = "Сохранить"
+        // }
         if (loading) {
-          this._button.value = "Сохранение..."
-        } else {
-          this._button.value = "Сохранить"
-        }
+            this._button.textContent = "Сохранение..."
+          } else {
+            this._button.textContent = "Сохранить"
+          }
     }
 
     setEventListeners() {
