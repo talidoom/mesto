@@ -3,7 +3,6 @@ export default class Popup {
         this._popup = document.querySelector(popupSelector);
         this._handleEscClose = this._handleEscClose.bind(this);
         this._handleOverlayClose = this._handleOverlayClose.bind(this);
-        this._button = this._popup.querySelector(".form__button")
     }
 
     open() {
@@ -27,19 +26,6 @@ export default class Popup {
         if(evt.key === 'Escape') {
             this.close();
         }
-    }
-
-    renderLoading(loading) {
-        // if (loading) {
-        //   this._button.value = "Сохранение..."
-        // } else {
-        //   this._button.value = "Сохранить"
-        // }
-        if (loading) {
-            this._button.textContent = "Сохранение..."
-          } else {
-            this._button.textContent = "Сохранить"
-          }
     }
 
     setEventListeners() {

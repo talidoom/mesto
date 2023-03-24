@@ -14,7 +14,7 @@ export default class PopupDelete extends Popup {
         });
     }
 
-    setFormSubmit(token) {
-        this.formSubmit = token;
+    setFormSubmit(submitHandler) {
+        this.formSubmit = submitHandler;
     }
 }

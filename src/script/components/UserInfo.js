@@ -18,9 +18,5 @@ export default class UserInfo {
       this._userInfoElement.textContent = data.about;
       this._userUrlElement.src = data.avatar;
     }
-
-    changeAvatarPicture(data) {
-      this._userUrlElement.src = data.avatar;
-    }
   }
   

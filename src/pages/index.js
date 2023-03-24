@@ -36,7 +36,7 @@ const popupAddPlace = new PopupWithForm(".popup_type_place", createNewCard);
 const popapAvatar = new PopupWithForm(".popup_type_edit-avatar", changeAvatar);
 // попап открытой картинки
 const scaleImagePopup = new PopupWithImage(".popup_type_picture");
-// попап удаления
+// попап удаления 
 const popupDelete = new PopupDelete('.popup_type_delete-card');
 
 const api = new Api('https://mesto.nomoreparties.co/v1/cohort-61', '246e7422-483c-4e41-82f4-4aaaa5291029');
@@ -72,8 +72,7 @@ function changeAvatar (item) {
     popapAvatar.renderLoading(true);
     api.setUserAvatar(item)
       .then((data) => {
-        // debugger;
-        user.changeAvatarPicture(data);
+        user.setUserInfo(data);
         popapAvatar.close();
       }).catch((err) => {
         console.log(`Ошибка ${err}`);
@@ -82,7 +81,7 @@ function changeAvatar (item) {
       });
   };
 
-function likeClick(card) {
+function getlikeClick(card) {
   const promise = card.isLiked(card) ? api.deleteLike(card._id) : api.setLike(card._id);
   promise
     .then((data) => {
@@ -111,7 +110,7 @@ function createCard(item) {
     currentUserId,
     '.card-template',
     deleteCard,
-    likeClick,
+    getlikeClick,
     (name, link) => { scaleImagePopup.openPic(name, link); });
   return card.genereateCard();
 };

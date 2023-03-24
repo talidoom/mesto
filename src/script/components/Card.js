@@ -24,8 +24,8 @@ export default class Card {
 
   _setEventListeners() {
     this._element.querySelector('.element__trash').addEventListener('click', () => this.deleteCard());
-    this._element.querySelector('.element__like-button').addEventListener('click', () => this._likeClick(this));
-    this._element.querySelector('.element__pic').addEventListener('click', () => {
+    this._buttonLike.addEventListener('click', () => this._likeClick(this));
+    this._cardImage.addEventListener('click', () => {
       this._openPic(this._name, this._link);
     });
   }
